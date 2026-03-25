@@ -686,4 +686,139 @@
       <div id="formSuccess" style="display:none; text-align:center; padding:3rem;">
         <div style="font-size:2rem; margin-bottom:1rem;">🍀</div>
         <div style="font-family:'Playfair Display',serif; font-size:1.3rem; font-style:italic; color:var(--gold);">Thank you — your request has been received.</div>
-        <div style="font-family:'Cormorant Garamond',serif; font-size:1rem; color:rgba(245,240,232,0*
+        <div style="font-family:'Cormorant Garamond',serif; font-size:1rem; color:rgba(245,240,232,0.5); margin-top:0.5rem;">I'll follow up within 24 hours.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-tagline">Traditional Bagpiper · New York City</div>
+  <div class="footer-sub">Tradition. Respect. Authenticity.</div>
+  <ul class="footer-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#gallery">Gallery</a></li>
+    <li><a href="#news">In the News</a></li>
+    <li><a href="#repertoire">Repertoire</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <div class="footer-copy">© 2026 · New York City &amp; Tri-State Area</div>
+</footer>
+
+<!-- GALLERY LIGHTBOX -->
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close" onclick="closeLightbox()">✕ Close</button>
+  <img id="lightboxImg" src="" alt="" onclick="event.stopPropagation()">
+</div>
+
+<!-- VIDEO MODAL -->
+<div class="video-modal" id="videoModal" onclick="handleModalClick(event)">
+  <div class="video-modal-inner">
+    <button class="modal-close" onclick="closeVideoModal()">✕ Close</button>
+    <video id="modalVideo" controls src="skynews.MP4"></video>
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    
+    // Hamburger with animation
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('navLinks');
+    
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('active');
+      navLinks.classList.toggle('open');
+    });
+    
+    navLinks.querySelectorAll('a').forEach(a =>
+      a.addEventListener('click', () => {
+        hamburger.classList.remove('active');
+        navLinks.classList.remove('open');
+      })
+    );
+
+    // Gallery lightbox
+    function openLightbox(el) {
+      const lightbox = document.getElementById('lightbox');
+      const lightboxImg = document.getElementById('lightboxImg');
+      
+      lightboxImg.src = el.querySelector('img').src;
+      lightbox.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+      const lightbox = document.getElementById('lightbox');
+      lightbox.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    window.openLightbox = openLightbox;
+    window.closeLightbox = closeLightbox;
+
+    const lightbox = document.getElementById('lightbox');
+    lightbox.addEventListener('click', function(e) {
+      if (e.target === this) closeLightbox();
+    });
+
+    document.getElementById('lightboxImg').addEventListener('click', function(e) {
+      e.stopPropagation();
+    });
+
+    document.querySelector('.lightbox-close').addEventListener('click', function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      closeLightbox();
+    });
+
+    // News lightbox
+    function openNewsLightbox(src) {
+      document.getElementById('lightboxImg').src = src;
+      lightbox.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    window.openNewsLightbox = openNewsLightbox;
+
+    // Video modal
+    function openVideoModal() {
+      document.getElementById('videoModal').classList.add('active');
+      document.body.style.overflow = 'hidden';
+      document.getElementById('modalVideo').play();
+    }
+
+    function closeVideoModal() {
+      document.getElementById('videoModal').classList.remove('active');
+      document.body.style.overflow = '';
+      const v = document.getElementById('modalVideo');
+      v.pause();
+      v.currentTime = 0;
+    }
+
+    function handleModalClick(e) {
+      if (e.target === document.getElementById('videoModal')) closeVideoModal();
+    }
+
+    window.openVideoModal = openVideoModal;
+    window.closeVideoModal = closeVideoModal;
+    window.handleModalClick = handleModalClick;
+
+    // Keyboard close
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') {
+        if (document.getElementById('lightbox').classList.contains('active')) {
+          closeLightbox();
+        }
+        if (document.getElementById('videoModal').classList.contains('active')) {
+          closeVideoModal();
+        }
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
