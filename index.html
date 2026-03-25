@@ -1,1 +1,677 @@
-<!DOCTYPE html>...<div class="lightbox" id="lightbox" onclick="event.target.id === 'lightbox' && closeLightbox()">...
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="description" content="Hire a professional NYC bagpiper for weddings, funerals, corporate events, and special occasions. Authentic Scottish music across New York City. Book today.">
+<title>NYC Bagpiper — Weddings, Funerals &amp; Events</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #0d0d0d;
+    --cream: #f5f0e8;
+    --gold: #b8943f;
+    --gold-light: #d4a843;
+    --green: #1a3a1a;
+    --border: rgba(184,148,63,0.3);
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { background: var(--ink); color: var(--cream); font-family: 'EB Garamond', serif; font-size: 18px; line-height: 1.7; overflow-x: hidden; }
+
+  /* NAV */
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; justify-content: space-between; align-items: center; padding: 1.2rem 4rem; background: rgba(13,13,13,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
+  .nav-logo { font-family: 'Cormorant Garamond', serif; font-size: 0.78rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); text-decoration: none; }
+  .nav-links { display: flex; gap: 2.5rem; list-style: none; align-items: center; }
+  .nav-links a { font-family: 'Cormorant Garamond', serif; font-size: 0.88rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--cream); text-decoration: none; opacity: 0.75; transition: opacity 0.2s, color 0.2s; }
+  .nav-links a:hover { opacity: 1; color: var(--gold); }
+  .nav-cta { font-family: 'Cormorant Garamond', serif; font-size: 0.78rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink) !important; background: var(--gold); padding: 0.6rem 1.5rem; text-decoration: none; opacity: 1 !important; transition: background 0.2s !important; }
+  .nav-cta:hover { background: var(--gold-light) !important; }
+  .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
+  .hamburger span { display: block; width: 24px; height: 2px; background: var(--cream); }
+
+  /* HERO */
+  #home { min-height: 100vh; display: flex; flex-direction: column; justify-content: flex-end; position: relative; overflow: hidden; }
+  .hero-bg { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(13,13,13,0.1) 0%, rgba(13,13,13,0.05) 25%, rgba(13,13,13,0.5) 60%, rgba(13,13,13,1) 100%), url('hero.jpg') center 30% / cover no-repeat; animation: heroZoom 18s ease-out forwards; }
+  @keyframes heroZoom { from { transform: scale(1.04); } to { transform: scale(1.0); } }
+  .hero-content { position: relative; z-index: 2; padding: 0 4rem 7rem; max-width: 860px; animation: fadeUp 1.1s ease-out 0.4s both; }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(28px); } to { opacity: 1; transform: translateY(0); } }
+  .hero-eyebrow { font-family: 'Cormorant Garamond', serif; font-size: 0.8rem; letter-spacing: 0.28em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.2rem; display: flex; align-items: center; gap: 1rem; }
+  .hero-eyebrow::before { content: ''; display: block; width: 36px; height: 1px; background: var(--gold); flex-shrink: 0; }
+  h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.8rem, 5.5vw, 5.2rem); font-weight: 900; line-height: 1.05; margin-bottom: 1.4rem; letter-spacing: -0.01em; }
+  h1 em { font-style: italic; color: var(--gold); }
+  .hero-sub { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-weight: 300; color: rgba(245,240,232,0.72); margin-bottom: 2.5rem; letter-spacing: 0.02em; }
+  .hero-btns { display: flex; gap: 1.2rem; flex-wrap: wrap; }
+
+  /* BUTTONS */
+  .btn-primary { font-family: 'Cormorant Garamond', serif; font-size: 0.85rem; letter-spacing: 0.2em; text-transform: uppercase; background: var(--gold); color: var(--ink); padding: 1rem 2.5rem; text-decoration: none; font-weight: 600; transition: background 0.2s, transform 0.15s; display: inline-block; }
+  .btn-primary:hover { background: var(--gold-light); transform: translateY(-1px); }
+  .btn-ghost { font-family: 'Cormorant Garamond', serif; font-size: 0.85rem; letter-spacing: 0.2em; text-transform: uppercase; border: 1px solid rgba(245,240,232,0.38); color: var(--cream); padding: 1rem 2.5rem; text-decoration: none; transition: border-color 0.2s, background 0.2s; display: inline-block; }
+  .btn-ghost:hover { border-color: var(--gold); background: rgba(184,148,63,0.1); }
+
+  /* SHARED */
+  .section-label { font-family: 'Cormorant Garamond', serif; font-size: 0.78rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); margin-bottom: 1rem; display: flex; align-items: center; justify-content: center; gap: 1rem; }
+  .section-label::before, .section-label::after { content: ''; display: block; width: 36px; height: 1px; background: var(--gold); }
+  .section-label.left { justify-content: flex-start; }
+  .section-label.left::after { display: none; }
+  .section-header { text-align: center; margin-bottom: 4.5rem; }
+  .section-header h2 { font-family: 'Playfair Display', serif; font-size: clamp(1.9rem, 3.5vw, 3rem); font-weight: 700; margin-top: 0.8rem; letter-spacing: -0.01em; }
+  .section-header h2 em { font-style: italic; color: var(--gold); }
+
+  /* SERVICES */
+  #services { padding: 8rem 4rem; background: var(--ink); }
+  .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(255px, 1fr)); gap: 2px; max-width: 1200px; margin: 0 auto; }
+  .service-tile { padding: 3rem 2.5rem; border: 1px solid var(--border); position: relative; overflow: hidden; transition: border-color 0.3s, background 0.3s; }
+  .service-tile::before { content: ''; position: absolute; top: 0; left: 0; width: 3px; height: 0; background: var(--gold); transition: height 0.4s ease; }
+  .service-tile:hover { border-color: var(--gold); background: rgba(184,148,63,0.04); }
+  .service-tile:hover::before { height: 100%; }
+  .service-icon { font-size: 1.8rem; margin-bottom: 1.2rem; display: block; }
+  .service-tile h3 { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 700; margin-bottom: 0.8rem; }
+  .service-tile p { font-family: 'Cormorant Garamond', serif; font-size: 1.05rem; color: rgba(245,240,232,0.7); line-height: 1.65; }
+  .service-detail { margin-top: 1rem; font-family: 'Cormorant Garamond', serif; font-size: 0.88rem; letter-spacing: 0.08em; color: var(--gold); opacity: 0.8; }
+
+  /* ABOUT */
+  #about { padding: 8rem 4rem; background: linear-gradient(180deg, var(--ink) 0%, #0a140a 50%, var(--ink) 100%); }
+  .about-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center; }
+ .about-image-stack {
+  position: relative;
+  height: auto; /* remove fixed height */
+}
+
+.about-img-main {
+  position: relative; /* remove absolute positioning */
+  width: 100%;
+  height: auto;
+  object-fit: contain; /* or just remove this line */
+  border: 1px solid var(--border);
+  display: block;
+}
+ 
+  .about-text h2 { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 2.8vw, 2.7rem); font-weight: 700; line-height: 1.15; margin-bottom: 1.5rem; }
+  .about-text h2 em { font-style: italic; color: var(--gold); }
+  .about-text p { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; color: rgba(245,240,232,0.8); margin-bottom: 1.2rem; line-height: 1.75; }
+  .credentials { margin-top: 2.5rem; display: flex; flex-direction: column; gap: 0.75rem; }
+  .credential-item { display: flex; align-items: flex-start; gap: 1rem; font-family: 'Cormorant Garamond', serif; font-size: 1rem; color: rgba(245,240,232,0.72); }
+  .credential-item::before { content: '◆'; color: var(--gold); font-size: 0.55rem; margin-top: 0.48rem; flex-shrink: 0; }
+
+  /* TESTIMONIALS */
+  #testimonials { padding: 8rem 4rem; background: var(--ink); position: relative; overflow: hidden; }
+  #testimonials::before { content: '"'; position: absolute; top: -3rem; left: 1rem; font-family: 'Playfair Display', serif; font-size: 22rem; color: rgba(184,148,63,0.04); line-height: 1; pointer-events: none; }
+  .testimonials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; max-width: 1200px; margin: 3rem auto 0; }
+  .testimonial-card { padding: 2.5rem; border: 1px solid var(--border); }
+  .testimonial-card::before { content: '"'; font-family: 'Playfair Display', serif; font-size: 3.5rem; color: var(--gold); opacity: 0.4; line-height: 1; display: block; margin-bottom: 0.4rem; }
+  .testimonial-card p { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-style: italic; color: rgba(245,240,232,0.85); line-height: 1.7; margin-bottom: 1.5rem; }
+  .testimonial-author { font-family: 'Cormorant Garamond', serif; font-size: 0.88rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); }
+
+  /* CTA BAND */
+  .cta-band { background: var(--green); padding: 4.5rem 4rem; text-align: center; border-top: 1px solid rgba(184,148,63,0.3); border-bottom: 1px solid rgba(184,148,63,0.3); }
+  .cta-band h2 { font-family: 'Playfair Display', serif; font-size: clamp(1.5rem, 3vw, 2.4rem); font-weight: 700; margin-bottom: 0.8rem; }
+  .cta-band p { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; color: rgba(245,240,232,0.72); margin-bottom: 2rem; }
+
+  /* GALLERY */
+  #gallery { padding: 8rem 4rem; background: #080e08; }
+  .gallery-grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 3px; max-width: 1400px; margin: 3rem auto 0; }
+  .gallery-item { overflow: hidden; position: relative; cursor: pointer; }
+  .gallery-item::after { content: ''; position: absolute; inset: 0; background: rgba(13,13,13,0); transition: background 0.3s; }
+  .gallery-item:hover::after { background: rgba(184,148,63,0.15); }
+  .gallery-item img { width: 100%; height: 100%; object-fit: cover; object-position: center center; display: block; transition: transform 0.5s ease; }
+  .gallery-item:hover img { transform: scale(1.04); }
+  .g1 { grid-column: 1/6;  grid-row: 1; height: 380px; }
+  .g2 { grid-column: 6/9;  grid-row: 1; height: 380px; }
+  .g3 { grid-column: 9/13; grid-row: 1; height: 380px; }
+  .g4 { grid-column: 1/5;  grid-row: 2; height: 300px; }
+  .g5 { grid-column: 5/9;  grid-row: 2; height: 300px; }
+  .g6 { grid-column: 9/13; grid-row: 2; height: 300px; }
+
+.gallery-instagram {
+  text-align: center;
+  margin-top: 2.5rem;
+}
+
+  /* IN THE NEWS */
+  #news { padding: 8rem 4rem; background: var(--ink); }
+  .news-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; max-width: 1200px; margin: 3rem auto 0; }
+  .news-card { border: 1px solid var(--border); overflow: hidden; transition: border-color 0.3s; cursor: pointer; }
+  .news-card:hover { border-color: var(--gold); }
+  .news-card-media { width: 100%; aspect-ratio: 16/9; overflow: hidden; position: relative; background: #111; }
+  .news-card-media img { width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block; transition: transform 0.5s ease; }
+  .news-card:hover .news-card-media img { transform: scale(1.04); }
+  .news-card-media video { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .play-badge { position: absolute; bottom: 0.8rem; left: 0.8rem; background: var(--gold); color: var(--ink); font-family: 'Cormorant Garamond', serif; font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; padding: 0.3rem 0.7rem; font-weight: 600; }
+  .news-card-body { padding: 1.8rem 2rem 2rem; }
+  .news-card-tag { font-family: 'Cormorant Garamond', serif; font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.6rem; }
+  .news-card-title { font-family: 'Playfair Display', serif; font-size: 1.15rem; font-weight: 700; line-height: 1.3; margin-bottom: 0.6rem; }
+  .news-card-desc { font-family: 'Cormorant Garamond', serif; font-size: 1rem; color: rgba(245,240,232,0.65); line-height: 1.6; }
+
+  /* VIDEO MODAL */
+  .video-modal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.96); z-index: 1000; align-items: center; justify-content: center; }
+  .video-modal.active { display: flex; }
+  .video-modal-inner { width: 90vw; max-width: 1000px; aspect-ratio: 16/9; position: relative; }
+  .video-modal-inner video { width: 100%; height: 100%; object-fit: contain; background: #000; }
+  .modal-close { position: absolute; top: -2.5rem; right: 0; font-family: 'Cormorant Garamond', serif; font-size: 0.9rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--cream); cursor: pointer; opacity: 0.65; background: none; border: none; transition: opacity 0.2s; }
+  .modal-close:hover { opacity: 1; }
+
+  /* REPERTOIRE */
+  #repertoire { padding: 8rem 4rem; background: #080e08; }
+  .repertoire-note { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-style: italic; color: rgba(245,240,232,0.6); text-align: center; max-width: 580px; margin: 0 auto 3rem; }
+  .repertoire-columns { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); border: 1px solid var(--border); max-width: 1200px; margin: 0 auto; }
+  .rep-category { padding: 2.5rem; border-right: 1px solid var(--border); }
+  .rep-category:last-child { border-right: none; }
+  .rep-category h3 { font-family: 'Playfair Display', serif; font-size: 1.05rem; font-weight: 700; margin-bottom: 1.4rem; padding-bottom: 1rem; border-bottom: 1px solid var(--border); color: var(--gold); }
+  .rep-list { list-style: none; display: flex; flex-direction: column; gap: 0.45rem; }
+  .rep-list li { font-family: 'Cormorant Garamond', serif; font-size: 1rem; color: rgba(245,240,232,0.72); padding: 0.25rem 0; border-bottom: 1px solid rgba(245,240,232,0.06); transition: color 0.2s; }
+  .rep-list li:hover { color: var(--cream); }
+
+  /* CONTACT */
+  #contact { padding: 8rem 4rem; background: linear-gradient(180deg, var(--ink) 0%, #060c06 100%); }
+  .contact-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1.6fr; gap: 6rem; align-items: start; }
+  .contact-info h2 { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 2.8vw, 2.6rem); font-weight: 700; line-height: 1.15; margin-bottom: 1.5rem; }
+  .contact-info h2 em { font-style: italic; color: var(--gold); }
+  .contact-info p { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; color: rgba(245,240,232,0.7); margin-bottom: 1.2rem; line-height: 1.7; }
+  .contact-details { display: flex; flex-direction: column; gap: 0.9rem; margin-top: 2rem; }
+  .contact-detail { font-family: 'Cormorant Garamond', serif; font-size: 1rem; color: rgba(245,240,232,0.72); display: flex; align-items: center; gap: 0.8rem; }
+  .response-note { margin-top: 2.5rem; padding: 1.2rem 1.5rem; border-left: 3px solid var(--gold); background: rgba(184,148,63,0.06); font-family: 'Cormorant Garamond', serif; font-size: 0.95rem; color: rgba(245,240,232,0.65); font-style: italic; }
+  .contact-form { background: rgba(255,255,255,0.02); border: 1px solid var(--border); padding: 3rem; }
+  .form-title { font-family: 'Playfair Display', serif; font-size: 1.45rem; font-weight: 700; margin-bottom: 0.4rem; }
+  .form-subtitle { font-family: 'Cormorant Garamond', serif; font-size: 1rem; color: rgba(245,240,232,0.55); margin-bottom: 2rem; font-style: italic; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .form-group { margin-bottom: 1.2rem; }
+  .form-group label { display: block; font-family: 'Cormorant Garamond', serif; font-size: 0.82rem; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(245,240,232,0.55); margin-bottom: 0.4rem; }
+  .form-group input, .form-group select, .form-group textarea { width: 100%; background: rgba(255,255,255,0.04); border: 1px solid rgba(184,148,63,0.22); color: var(--cream); font-family: 'Cormorant Garamond', serif; font-size: 1.05rem; padding: 0.75rem 1rem; outline: none; transition: border-color 0.2s; appearance: none; }
+  .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: var(--gold); background: rgba(184,148,63,0.05); }
+  .form-group select option { background: #1a1a1a; }
+  .form-group textarea { resize: vertical; min-height: 95px; }
+  .checkboxes { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 0.4rem; }
+  .checkbox-label { display: flex; align-items: center; gap: 0.5rem; font-family: 'Cormorant Garamond', serif; font-size: 0.95rem; color: rgba(245,240,232,0.72); cursor: pointer; }
+  .checkbox-label input[type="checkbox"] { width: auto; accent-color: var(--gold); cursor: pointer; }
+  .btn-submit { width: 100%; background: var(--gold); color: var(--ink); border: none; font-family: 'Cormorant Garamond', serif; font-size: 0.88rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; padding: 1.1rem; cursor: pointer; transition: background 0.2s; margin-top: 0.8rem; }
+  .btn-submit:hover { background: var(--gold-light); }
+  .form-success { display: none; text-align: center; padding: 3rem; font-family: 'Playfair Display', serif; font-style: italic; color: var(--gold); font-size: 1.3rem; }
+
+  /* FOOTER */
+  footer { background: #060606; padding: 4rem; text-align: center; border-top: 1px solid var(--border); }
+  .footer-tagline { font-family: 'Cormorant Garamond', serif; font-size: 0.78rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); margin-bottom: 1rem; }
+  .footer-sub { font-family: 'Cormorant Garamond', serif; font-size: 1rem; font-style: italic; color: rgba(245,240,232,0.3); margin-bottom: 2rem; }
+  .footer-links { display: flex; justify-content: center; gap: 2rem; list-style: none; margin-bottom: 2rem; flex-wrap: wrap; }
+  .footer-links a { font-family: 'Cormorant Garamond', serif; font-size: 0.85rem; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(245,240,232,0.4); text-decoration: none; transition: color 0.2s; }
+  .footer-links a:hover { color: var(--gold); }
+  .footer-copy { font-family: 'Cormorant Garamond', serif; font-size: 0.8rem; color: rgba(245,240,232,0.18); }
+
+  /* LIGHTBOX */
+  .lightbox { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.96); z-index: 1000; align-items: center; justify-content: center; }
+  .lightbox.active { display: flex; }
+  .lightbox img { max-width: 90vw; max-height: 88vh; object-fit: contain; border: 1px solid var(--border); }
+  .lightbox-close { position: absolute; top: 1.5rem; right: 2rem; font-family: 'Cormorant Garamond', serif; font-size: 0.9rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--cream); cursor: pointer; opacity: 0.65; background: none; border: none; transition: opacity 0.2s; }
+  .lightbox-close:hover { opacity: 1; }
+
+  /* REVEAL */
+  .reveal { opacity: 1; transform: none; }
+
+  /* MOBILE */
+  @media (max-width: 900px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { display: none; flex-direction: column; position: fixed; top: 60px; left: 0; right: 0; background: rgba(13,13,13,0.98); padding: 2rem; gap: 1.5rem; border-bottom: 1px solid var(--border); z-index: 99; }
+    .nav-links.open { display: flex; }
+    .nav-cta { display: none; }
+    .hamburger { display: flex; }
+    .hero-content { padding: 0 1.5rem 5rem; }
+    #services, #about, #testimonials, #gallery, #news, #repertoire, #contact { padding: 5rem 1.5rem; }
+    .cta-band { padding: 3rem 1.5rem; }
+    footer { padding: 3rem 1.5rem; }
+    .about-inner { grid-template-columns: 1fr; gap: 3rem; }
+    .about-image-stack { height: 380px; }
+    .contact-inner { grid-template-columns: 1fr; gap: 3rem; }
+    .form-row { grid-template-columns: 1fr; }
+    .gallery-grid { grid-template-columns: repeat(6, 1fr); }
+    .g1 { grid-column: 1/7; height: 260px; }
+    .g2 { grid-column: 1/4; height: 200px; }
+    .g3 { grid-column: 4/7; height: 200px; }
+    .g4 { grid-column: 1/3; height: 170px; }
+    .g5 { grid-column: 3/5; height: 170px; }
+    .g6 { grid-column: 5/7; height: 170px; }
+    .repertoire-columns { grid-template-columns: 1fr; }
+    .rep-category { border-right: none; border-bottom: 1px solid var(--border); }
+    .video-modal-inner { width: 96vw; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#home" class="nav-logo">Traditional Bagpiper · NYC</a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#gallery">Gallery</a></li>
+    <li><a href="#news">In the News</a></li>
+    <li><a href="#repertoire">Repertoire</a></li>
+    <li><a href="#contact" class="nav-cta">Book Now</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- HERO -->
+<section id="home">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">Traditional Highland Bagpiper</div>
+    <h1>Music for Every<br><em>Sacred Occasion</em></h1>
+    <p class="hero-sub">Weddings · Funerals · Memorials · Ceremonial Events<br>Serving New York City &amp; the Tri-State Area</p>
+    <div class="hero-btns">
+      <a href="#contact" class="btn-primary">Request Booking</a>
+      <a href="#gallery" class="btn-ghost">View Gallery</a>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="section-header reveal">
+    <div class="section-label">What I Offer</div>
+    <h2>Every Occasion Deserves<br><em>the Right Sound</em></h2>
+  </div>
+  <div class="services-grid">
+    <div class="service-tile reveal">
+      <span class="service-icon">💍</span>
+      <h3>Weddings</h3>
+      <p>From the moment guests arrive to the last note of your recessional, the pipes bring an unforgettable sense of ceremony and emotion to your wedding day.</p>
+      <div class="service-detail">Processional · Recessional · Cocktail Hour</div>
+    </div>
+    <div class="service-tile reveal">
+      <span class="service-icon">🕊️</span>
+      <h3>Funerals &amp; Memorials</h3>
+      <p>The bagpipes carry grief and honor in a way few instruments can. I approach every memorial with quiet dignity and deep respect for those being remembered.</p>
+      <div class="service-detail">Graveside · Church · Memorial Ceremony</div>
+    </div>
+    <div class="service-tile reveal">
+      <span class="service-icon">🏛️</span>
+      <h3>Corporate &amp; Public Events</h3>
+      <p>Grand openings, award ceremonies, civic occasions — the pipes command attention and set the tone for a memorable event.</p>
+      <div class="service-detail">Openings · Award Nights · Parades</div>
+    </div>
+    <div class="service-tile reveal">
+      <span class="service-icon">🍀</span>
+      <h3>Private &amp; Cultural Ceremonies</h3>
+      <p>Anniversaries, baptisms, heritage celebrations, Irish and Scottish cultural gatherings — I bring authentic tradition to any private occasion.</p>
+      <div class="service-detail">Private Parties · Cultural Events · Parades</div>
+    </div>
+  </div>
+  <div style="text-align:center; margin-top: 3.5rem;" class="reveal">
+    <a href="#contact" class="btn-primary">Contact for Pricing &amp; Availability</a>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-inner">
+    <div class="about-image-stack reveal">
+      <img class="about-img-main" src="1.jpg" alt="Thomas Addis Emmet Memorial">
+    </div>
+    <div class="about-text reveal">
+      <div class="section-label left">About</div>
+      <h2>Rooted in <em>Irish Tradition.</em><br>Performing Across New York.</h2>
+      <p>I have been playing the Great Highland Bagpipes since 2008, returning to active performance in 2018. Since then I have become a regular presence across the New York tri-state area's Irish and Irish-American community — performing at weddings, memorials, cultural ceremonies, and landmark public occasions.</p>
+      <p>My work is closely tied to New York's long-standing Irish traditions. Highlights include performing at the NASDAQ closing bell in recognition of the NYC St. Patrick's Day Parade, and at the Irish Embassy in New York in honor of the 2026 Grand Marshal Robert James McCann.</p>
+      <p>I perform with the County Cork Pipe and Drums — a band established in 1936 with deep ties to both County Cork and the New York Irish community. In 2026, I will return to Ireland to compete in the Fleadh Cheoil in Belfast.</p>
+      <div class="credentials">
+        <div class="credential-item">Playing since 2008 · Performing professionally since 2018</div>
+        <div class="credential-item">Member, County Cork Pipe &amp; Drums (est. 1936)</div>
+        <div class="credential-item">Performed at the NASDAQ closing bell &amp; Irish Embassy NY</div>
+        <div class="credential-item">International performances in Cork City &amp; Fermoy, Ireland</div>
+        <div class="credential-item">Fenian Memorial Committee · Gaelic Park · NYC St. Patrick's Day</div>
+        <div class="credential-item">Competing at Fleadh Cheoil, Belfast 2026</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- CTA BAND -->
+<div class="cta-band reveal">
+  <h2>Ready to Book?</h2>
+  <p>Pricing varies by event type, location, and timing. Reach out and I'll respond within 24 hours.</p>
+  <a href="#contact" class="btn-primary">Check Availability</a>
+</div>
+
+<!-- GALLERY -->
+<section id="gallery">
+  <div class="section-header reveal">
+    <div class="section-label">Gallery</div>
+    <h2>Performances &amp; <em>Occasions</em></h2>
+  </div>
+  <div class="gallery-grid">
+    <div class="gallery-item g1" onclick="openLightbox(this)">
+      <img src="2.JPEG" alt="Judge John Goff Dedication">
+    </div>
+    <div class="gallery-item g2" onclick="openLightbox(this)">
+      <img src="3.jpg" alt="Judge John Goff Tombstone">
+    </div>
+    <div class="gallery-item g3" onclick="openLightbox(this)">
+      <img src="4.jpeg" alt="Denis Cashman Dedication">
+    </div>
+    <div class="gallery-item g4" onclick="openLightbox(this)">
+      <img src="5.jpg" alt="dedication for American Civil War Veteran Joseph Mansfield">
+    </div>
+    <div class="gallery-item g5" onclick="openLightbox(this)">
+      <img src="6.jpg" alt="2026 NYC St. Patrick's Day Parade Grand Marshall Reception at the Irish Consulate">
+    </div>
+    <div class="gallery-item g6" onclick="openLightbox(this)">
+      <img src="7.jpg" alt="5th Avenue, NYC St. Patrick's Day Parade">
+    </div>
+  </div>
+
+  <div class="gallery-instagram">
+    <a 
+      href="https://www.instagram.com/theirishpiper/" 
+      target="_blank" 
+      class="btn-primary">
+      Visit Us On Instagram
+    </a>
+  </div>
+
+</section>
+
+<!-- IN THE NEWS -->
+<section id="news">
+  <div class="section-header reveal">
+    <div class="section-label">In the News</div>
+    <h2>On Stage, On the Street,<br><em>In the Record</em></h2>
+  </div>
+  <div class="news-grid">
+
+    <div class="news-card reveal" onclick="openNewsLightbox('news2.JPG')">
+      <div class="news-card-media">
+        <img src="news2.JPG" alt=".">
+      </div>
+      <div class="news-card-body">
+        <div class="news-card-tag">Memorial · Denis Cashman</div>
+        <div class="news-card-title">Denis Cashman Gravestone Unveiling</div>
+        <div class="news-card-desc">A memorial was unveiled in Boston honoring Denis Cashman, an Abbeyside man who sacrificed his life for Ireland. The project, led by descendants and supporters including Susan Sullivan and the Fenian Memorial Committee of America commemorates his legacy and connects his Irish roots with his final resting place in the U.S.</div>
+      </div>
+    </div>
+
+    <div class="news-card reveal" onclick="openNewsLightbox('news3.JPG')">
+      <div class="news-card-media">
+        <img src="news3.JPG" alt="Irish Embassy New York">
+      </div>
+      <div class="news-card-body">
+        <div class="news-card-tag">Ceremonial · Liam Lynch</div>
+        <div class="news-card-title">Liam Lynch Centenary</div>
+        <div class="news-card-desc">In April 2023, Fermoy marked the centenary of General Liam Lynch’s death with a commemorative parade featuring 12 pipe bands from Ireland and abroad. The County Cork Pipe Band led the tribute, highlighting the region’s strong musical tradition while honoring Lynch’s legacy in the Irish Civil War.</div>
+      </div>
+    </div>
+
+    <div class="news-card reveal" onclick="openNewsLightbox('news4.JPG')">
+      <div class="news-card-media">
+        <img src="news4.JPG" alt="St. Patrick's Day Parade">
+      </div>
+      <div class="news-card-body">
+        <div class="news-card-tag">Parade · St. Patrick's Day</div>
+        <div class="news-card-title">Sunnyside St. Pat's for All</div>
+        <div class="news-card-desc">A fixture in the parades that define New York's Irish calendar — from the NYC St. Patrick's Day Parade to events across Long Island and the Hudson Valley.</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- REPERTOIRE -->
+<section id="repertoire">
+  <div class="section-header reveal">
+    <div class="section-label">Repertoire</div>
+    <h2>A Rich Selection of <em>Tunes</em></h2>
+  </div>
+  <p class="repertoire-note">A selection of frequently requested pieces. If you have a specific tune in mind, I'm happy to accommodate requests when possible — just mention it when you book.</p>
+  <div class="repertoire-columns">
+    <div class="rep-category reveal">
+      <h3>Irish Classics</h3>
+      <ul class="rep-list">
+        <li>A Nation Once Again</li>
+        <li>Amhrán na bhFiann</li>
+        <li>Boys of the County Cork</li>
+        <li>Brian Boru's March</li>
+        <li>Garryowen</li>
+        <li>Kelly the Boy from Killane</li>
+        <li>Let Erin Remember</li>
+        <li>Minstrel Boy</li>
+        <li>Rakes of Mallow</li>
+        <li>Star of the County Down</li>
+        <li>Wearing of the Green</li>
+        <li>Wrap the Green Flag Around Me</li>
+      </ul>
+    </div>
+    <div class="rep-category reveal">
+      <h3>Traditional &amp; Scottish</h3>
+      <ul class="rep-list">
+        <li>A Man's a Man for A' That</li>
+        <li>Amazing Grace</li>
+        <li>Battle of Waterloo</li>
+        <li>The Bluebells of Scotland</li>
+        <li>Cork Hill</li>
+        <li>Cutting Bracken</li>
+        <li>Dawning of the Day</li>
+        <li>Galloway Hills</li>
+        <li>Green Glens of Antrim</li>
+        <li>Scotland the Brave</li>
+        <li>The Rowan Tree</li>
+        <li>Will Ye No Come Back Again</li>
+      </ul>
+    </div>
+    <div class="rep-category reveal">
+      <h3>Dance Tunes &amp; Jigs</h3>
+      <ul class="rep-list">
+        <li>The Hag at the Churn</li>
+        <li>The Kerry Dancers</li>
+        <li>The Kesh Jig</li>
+        <li>Merrily Danced the Quaker's Wife</li>
+        <li>O'Neill's Cavalcade</li>
+        <li>Paddy's Epic Journey</li>
+        <li>Peg Ryan's Polka</li>
+        <li>Ramnee Ceilidh</li>
+        <li>The Wild Rover</li>
+      </ul>
+    </div>
+    <div class="rep-category reveal">
+      <h3>Ceremonial &amp; Requests</h3>
+      <ul class="rep-list">
+        <li>America the Beautiful</li>
+        <li>God Bless America</li>
+        <li>I'm Shipping Up to Boston</li>
+        <li>The Marine Corps Hymn</li>
+        <li>St. Patrick's Day</li>
+        <li>Star Wars Theme</li>
+        <li>Tralee Gaol</li>
+        <li>Irish Soldier Boy</li>
+        <li>Cork Pipe Band of New York</li>
+        <li><em>Special requests welcome</em></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-inner">
+    <div class="contact-info reveal">
+      <div class="section-label left">Get in Touch</div>
+      <h2>Let's Make Your<br><em>Occasion Memorable</em></h2>
+      <p>Whether it's a wedding, a memorial, or a cultural event, I'd love to bring the tradition and solemnity of the pipes to your occasion. Fill out the form and I'll be in touch within 24 hours.</p>
+      <p style="font-style:italic; color: rgba(245,240,232,0.42); font-size:0.95rem;">Pricing varies based on event type, location, and timing. I'll provide a quote after discussing your needs.</p>
+      <div class="contact-details">
+        <div class="contact-detail"><span>📍</span><span>New York City &amp; Tri-State Area</span></div>
+      </div>
+      <div class="response-note">Typical response time: within 24 hours.</div>
+    </div>
+
+    <div class="contact-form reveal">
+      <div class="form-title">Request Booking or Check Availability</div>
+      <div class="form-subtitle">Fill out a few details below and I'll get back to you within 24 hours.</div>
+      <form id="bookingForm" action="https://submit-form.com/o53Rb9Rx3">
+        <input type="hidden" name="_redirect" value="http://www.theirishpiper.com/" />
+        <div class="form-row">
+          <div class="form-group">
+            <label>Name *</label>
+            <input type="text" name="name" required placeholder="Your name">
+          </div>
+          <div class="form-group">
+            <label>Email *</label>
+            <input type="email" name="email" required placeholder="your@email.com">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Phone (optional)</label>
+            <input type="tel" name="phone" placeholder="(212) 555-0100">
+          </div>
+          <div class="form-group">
+            <label>Event Type *</label>
+            <select name="event_type" required>
+              <option value="" disabled selected>Select type…</option>
+              <option>Wedding</option>
+              <option>Funeral / Memorial</option>
+              <option>Corporate Event</option>
+              <option>Private Event</option>
+              <option>Other</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Event Date</label>
+            <input type="date" name="event_date">
+          </div>
+          <div class="form-group">
+            <label>Location (City, State)</label>
+            <input type="text" name="location" placeholder="e.g. Brooklyn, NY">
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Performance Details (select all that apply)</label>
+          <div class="checkboxes">
+            <label class="checkbox-label"><input type="checkbox" name="details" value="ceremony"> Ceremony</label>
+            <label class="checkbox-label"><input type="checkbox" name="details" value="processional"> Processional / Recessional</label>
+            <label class="checkbox-label"><input type="checkbox" name="details" value="graveside"> Graveside</label>
+            <label class="checkbox-label"><input type="checkbox" name="details" value="reception"> Reception / Event</label>
+            <label class="checkbox-label"><input type="checkbox" name="details" value="unsure"> Not sure yet</label>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Specific Tune Requests?</label>
+          <input type="text" name="tunes" placeholder="We will do our …">
+        </div>
+        <div class="form-group">
+          <label>Additional Details</label>
+          <textarea name="notes" placeholder="Anything else I should know about your event…"></textarea>
+        </div>
+        <button type="submit" class="btn-submit">Check Availability</button>
+      </form>
+      <div id="formSuccess" style="display:none; text-align:center; padding:3rem;">
+        <div style="font-size:2rem; margin-bottom:1rem;">🍀</div>
+        <div style="font-family:'Playfair Display',serif; font-size:1.3rem; font-style:italic; color:var(--gold);">Thank you — your request has been received.</div>
+        <div style="font-family:'Cormorant Garamond',serif; font-size:1rem; color:rgba(245,240,232,0.5); margin-top:0.5rem;">I'll follow up within 24 hours.</div>
+      </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-tagline">Traditional Bagpiper · New York City</div>
+  <div class="footer-sub">Tradition. Respect. Authenticity.</div>
+  <ul class="footer-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#gallery">Gallery</a></li>
+    <li><a href="#news">In the News</a></li>
+    <li><a href="#repertoire">Repertoire</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <div class="footer-copy">© 2026 · New York City &amp; Tri-State Area</div>
+</footer>
+
+<!-- GALLERY LIGHTBOX -->
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close" onclick="closeLightbox()">✕ Close</button>
+  <img id="lightboxImg" src="" alt="" onclick="event.stopPropagation()">
+</div>
+
+<!-- VIDEO MODAL -->
+<div class="video-modal" id="videoModal" onclick="handleModalClick(event)">
+  <div class="video-modal-inner">
+    <button class="modal-close" onclick="closeVideoModal()">✕ Close</button>
+    <video id="modalVideo" controls src="skynews.MP4"></video>
+  </div>
+</div>
+
+<script>
+  // Hamburger
+  document.getElementById('hamburger').addEventListener('click', () =>
+    document.getElementById('navLinks').classList.toggle('open')
+  );
+  document.querySelectorAll('.nav-links a').forEach(a =>
+    a.addEventListener('click', () => document.getElementById('navLinks').classList.remove('open'))
+  );
+
+  // Scroll reveal removed for reliability
+
+ // Gallery lightbox
+function openLightbox(el) {
+  document.getElementById('lightboxImg').src = el.querySelector('img').src;
+  document.getElementById('lightbox').classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeLightbox() {
+  document.getElementById('lightbox').classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+// Only close when clicking background
+document.getElementById('lightbox').addEventListener('click', function(e) {
+  if (e.target === this) {
+    closeLightbox();
+  }
+});
+
+  // News photo lightbox
+  function openNewsLightbox(src) {
+    document.getElementById('lightboxImg').src = src;
+    document.getElementById('lightbox').classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  // Video modal
+  function openVideoModal() {
+    document.getElementById('videoModal').classList.add('active');
+    document.body.style.overflow = 'hidden';
+    document.getElementById('modalVideo').play();
+  }
+  function closeVideoModal() {
+    document.getElementById('videoModal').classList.remove('active');
+    document.body.style.overflow = '';
+    const v = document.getElementById('modalVideo');
+    v.pause(); v.currentTime = 0;
+  }
+  function handleModalClick(e) {
+    if (e.target === document.getElementById('videoModal')) closeVideoModal();
+  }
+
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') { closeLightbox(); closeVideoModal(); }
+  });
+
+  // Form submits via Formspark action attribute
+
+  // Nav highlight
+  const sections = document.querySelectorAll('section[id]');
+  window.addEventListener('scroll', () => {
+    let current = '';
+    
