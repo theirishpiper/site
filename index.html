@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Hire a professional NYC bagpiper for weddings, funerals, corporate events, and special occasions. Authentic Scottish music across New York City. Book today.">
 <title>NYC Bagpiper — Weddings, Funerals &amp; Events</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -22,17 +23,20 @@
 
   /* NAV */
   nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; justify-content: space-between; align-items: center; padding: 1.2rem 4rem; background: rgba(13,13,13,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
-  .nav-logo { font-family: 'Cormorant Garamond', serif; font-size: 0.78rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); text-decoration: none; }
+  .nav-logo { font-family: 'Cormorant Garamond', serif; font-size: 0.78rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); text-decoration: none; white-space: nowrap; }
   .nav-links { display: flex; gap: 2.5rem; list-style: none; align-items: center; }
   .nav-links a { font-family: 'Cormorant Garamond', serif; font-size: 0.88rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--cream); text-decoration: none; opacity: 0.75; transition: opacity 0.2s, color 0.2s; }
   .nav-links a:hover { opacity: 1; color: var(--gold); }
-  .nav-cta { font-family: 'Cormorant Garamond', serif; font-size: 0.78rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink) !important; background: var(--gold); padding: 0.6rem 1.5rem; text-decoration: none; opacity: 1 !important; transition: background 0.2s !important; }
+  .nav-cta { font-family: 'Cormorant Garamond', serif; font-size: 0.78rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink) !important; background: var(--gold); padding: 0.6rem 1.5rem; text-decoration: none; opacity: 1 !important; transition: background 0.2s !important; border-radius: 2px; }
   .nav-cta:hover { background: var(--gold-light) !important; }
-  .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
-  .hamburger span { display: block; width: 24px; height: 2px; background: var(--cream); }
+  .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 8px; min-width: 44px; min-height: 44px; align-items: center; justify-content: center; }
+  .hamburger span { display: block; width: 24px; height: 2px; background: var(--cream); transition: all 0.3s; }
+  .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(8px, 8px); }
+  .hamburger.active span:nth-child(2) { opacity: 0; }
+  .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(8px, -8px); }
 
   /* HERO */
-  #home { min-height: 100vh; display: flex; flex-direction: column; justify-content: flex-end; position: relative; overflow: hidden; }
+  #home { min-height: 100vh; display: flex; flex-direction: column; justify-content: flex-end; position: relative; overflow: hidden; padding-top: 60px; }
   .hero-bg { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(13,13,13,0.1) 0%, rgba(13,13,13,0.05) 25%, rgba(13,13,13,0.5) 60%, rgba(13,13,13,1) 100%), url('hero.jpg') center 30% / cover no-repeat; animation: heroZoom 18s ease-out forwards; }
   @keyframes heroZoom { from { transform: scale(1.04); } to { transform: scale(1.0); } }
   .hero-content { position: relative; z-index: 2; padding: 0 4rem 7rem; max-width: 860px; animation: fadeUp 1.1s ease-out 0.4s both; }
@@ -45,9 +49,10 @@
   .hero-btns { display: flex; gap: 1.2rem; flex-wrap: wrap; }
 
   /* BUTTONS */
-  .btn-primary { font-family: 'Cormorant Garamond', serif; font-size: 0.85rem; letter-spacing: 0.2em; text-transform: uppercase; background: var(--gold); color: var(--ink); padding: 1rem 2.5rem; text-decoration: none; font-weight: 600; transition: background 0.2s, transform 0.15s; display: inline-block; }
+  .btn-primary { font-family: 'Cormorant Garamond', serif; font-size: 0.85rem; letter-spacing: 0.2em; text-transform: uppercase; background: var(--gold); color: var(--ink); padding: 1rem 2.5rem; text-decoration: none; font-weight: 600; transition: background 0.2s, transform 0.15s; display: inline-block; border-radius: 2px; border: none; cursor: pointer; min-height: 44px; display: inline-flex; align-items: center; }
   .btn-primary:hover { background: var(--gold-light); transform: translateY(-1px); }
-  .btn-ghost { font-family: 'Cormorant Garamond', serif; font-size: 0.85rem; letter-spacing: 0.2em; text-transform: uppercase; border: 1px solid rgba(245,240,232,0.38); color: var(--cream); padding: 1rem 2.5rem; text-decoration: none; transition: border-color 0.2s, background 0.2s; display: inline-block; }
+  .btn-primary:active { transform: translateY(0); }
+  .btn-ghost { font-family: 'Cormorant Garamond', serif; font-size: 0.85rem; letter-spacing: 0.2em; text-transform: uppercase; border: 1px solid rgba(245,240,232,0.38); color: var(--cream); padding: 1rem 2.5rem; text-decoration: none; transition: border-color 0.2s, background 0.2s; display: inline-block; border-radius: 2px; min-height: 44px; display: inline-flex; align-items: center; }
   .btn-ghost:hover { border-color: var(--gold); background: rgba(184,148,63,0.1); }
 
   /* SHARED */
@@ -65,6 +70,7 @@
   .service-tile { padding: 3rem 2.5rem; border: 1px solid var(--border); position: relative; overflow: hidden; transition: border-color 0.3s, background 0.3s; }
   .service-tile::before { content: ''; position: absolute; top: 0; left: 0; width: 3px; height: 0; background: var(--gold); transition: height 0.4s ease; }
   .service-tile:hover { border-color: var(--gold); background: rgba(184,148,63,0.04); }
+  .service-tile:focus-within { border-color: var(--gold); background: rgba(184,148,63,0.04); }
   .service-tile:hover::before { height: 100%; }
   .service-icon { font-size: 1.8rem; margin-bottom: 1.2rem; display: block; }
   .service-tile h3 { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 700; margin-bottom: 0.8rem; }
@@ -74,20 +80,8 @@
   /* ABOUT */
   #about { padding: 8rem 4rem; background: linear-gradient(180deg, var(--ink) 0%, #0a140a 50%, var(--ink) 100%); }
   .about-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center; }
- .about-image-stack {
-  position: relative;
-  height: auto; /* remove fixed height */
-}
-
-.about-img-main {
-  position: relative; /* remove absolute positioning */
-  width: 100%;
-  height: auto;
-  object-fit: contain; /* or just remove this line */
-  border: 1px solid var(--border);
-  display: block;
-}
- 
+  .about-image-stack { position: relative; height: auto; }
+  .about-img-main { position: relative; width: 100%; height: auto; object-fit: contain; border: 1px solid var(--border); display: block; }
   .about-text h2 { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 2.8vw, 2.7rem); font-weight: 700; line-height: 1.15; margin-bottom: 1.5rem; }
   .about-text h2 em { font-style: italic; color: var(--gold); }
   .about-text p { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; color: rgba(245,240,232,0.8); margin-bottom: 1.2rem; line-height: 1.75; }
@@ -117,17 +111,14 @@
   .gallery-item:hover::after { background: rgba(184,148,63,0.15); }
   .gallery-item img { width: 100%; height: 100%; object-fit: cover; object-position: center center; display: block; transition: transform 0.5s ease; }
   .gallery-item:hover img { transform: scale(1.04); }
-  .g1 { grid-column: 1/6;  grid-row: 1; height: 380px; }
-  .g2 { grid-column: 6/9;  grid-row: 1; height: 380px; }
+  .g1 { grid-column: 1/6; grid-row: 1; height: 380px; }
+  .g2 { grid-column: 6/9; grid-row: 1; height: 380px; }
   .g3 { grid-column: 9/13; grid-row: 1; height: 380px; }
-  .g4 { grid-column: 1/5;  grid-row: 2; height: 300px; }
-  .g5 { grid-column: 5/9;  grid-row: 2; height: 300px; }
+  .g4 { grid-column: 1/5; grid-row: 2; height: 300px; }
+  .g5 { grid-column: 5/9; grid-row: 2; height: 300px; }
   .g6 { grid-column: 9/13; grid-row: 2; height: 300px; }
 
-.gallery-instagram {
-  text-align: center;
-  margin-top: 2.5rem;
-}
+  .gallery-instagram { text-align: center; margin-top: 2.5rem; }
 
   /* IN THE NEWS */
   #news { padding: 8rem 4rem; background: var(--ink); }
@@ -149,7 +140,7 @@
   .video-modal.active { display: flex; }
   .video-modal-inner { width: 90vw; max-width: 1000px; aspect-ratio: 16/9; position: relative; }
   .video-modal-inner video { width: 100%; height: 100%; object-fit: contain; background: #000; }
-  .modal-close { position: absolute; top: -2.5rem; right: 0; font-family: 'Cormorant Garamond', serif; font-size: 0.9rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--cream); cursor: pointer; opacity: 0.65; background: none; border: none; transition: opacity 0.2s; }
+  .modal-close { position: absolute; top: -2.5rem; right: 0; font-family: 'Cormorant Garamond', serif; font-size: 0.9rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--cream); cursor: pointer; opacity: 0.65; background: none; border: none; transition: opacity 0.2s; min-width: 44px; min-height: 44px; }
   .modal-close:hover { opacity: 1; }
 
   /* REPERTOIRE */
@@ -178,15 +169,16 @@
   .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
   .form-group { margin-bottom: 1.2rem; }
   .form-group label { display: block; font-family: 'Cormorant Garamond', serif; font-size: 0.82rem; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(245,240,232,0.55); margin-bottom: 0.4rem; }
-  .form-group input, .form-group select, .form-group textarea { width: 100%; background: rgba(255,255,255,0.04); border: 1px solid rgba(184,148,63,0.22); color: var(--cream); font-family: 'Cormorant Garamond', serif; font-size: 1.05rem; padding: 0.75rem 1rem; outline: none; transition: border-color 0.2s; appearance: none; }
+  .form-group input, .form-group select, .form-group textarea { width: 100%; background: rgba(255,255,255,0.04); border: 1px solid rgba(184,148,63,0.22); color: var(--cream); font-family: 'Cormorant Garamond', serif; font-size: 1.05rem; padding: 0.75rem 1rem; outline: none; transition: border-color 0.2s; appearance: none; min-height: 44px; }
   .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: var(--gold); background: rgba(184,148,63,0.05); }
   .form-group select option { background: #1a1a1a; }
   .form-group textarea { resize: vertical; min-height: 95px; }
   .checkboxes { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 0.4rem; }
   .checkbox-label { display: flex; align-items: center; gap: 0.5rem; font-family: 'Cormorant Garamond', serif; font-size: 0.95rem; color: rgba(245,240,232,0.72); cursor: pointer; }
-  .checkbox-label input[type="checkbox"] { width: auto; accent-color: var(--gold); cursor: pointer; }
-  .btn-submit { width: 100%; background: var(--gold); color: var(--ink); border: none; font-family: 'Cormorant Garamond', serif; font-size: 0.88rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; padding: 1.1rem; cursor: pointer; transition: background 0.2s; margin-top: 0.8rem; }
+  .checkbox-label input[type="checkbox"] { width: auto; accent-color: var(--gold); cursor: pointer; min-width: 20px; min-height: 20px; }
+  .btn-submit { width: 100%; background: var(--gold); color: var(--ink); border: none; font-family: 'Cormorant Garamond', serif; font-size: 0.88rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; padding: 1.1rem; cursor: pointer; transition: background 0.2s; margin-top: 0.8rem; min-height: 44px; border-radius: 2px; }
   .btn-submit:hover { background: var(--gold-light); }
+  .btn-submit:active { transform: translateY(0); }
   .form-success { display: none; text-align: center; padding: 3rem; font-family: 'Playfair Display', serif; font-style: italic; color: var(--gold); font-size: 1.3rem; }
 
   /* FOOTER */
@@ -202,27 +194,48 @@
   .lightbox { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.96); z-index: 1000; align-items: center; justify-content: center; }
   .lightbox.active { display: flex; }
   .lightbox img { max-width: 90vw; max-height: 88vh; object-fit: contain; border: 1px solid var(--border); }
-  .lightbox-close { position: absolute; top: 1.5rem; right: 2rem; font-family: 'Cormorant Garamond', serif; font-size: 0.9rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--cream); cursor: pointer; opacity: 0.65; background: none; border: none; transition: opacity 0.2s; }
+  .lightbox-close { position: absolute; top: 1.5rem; right: 2rem; font-family: 'Cormorant Garamond', serif; font-size: 0.9rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--cream); cursor: pointer; opacity: 0.65; background: none; border: none; transition: opacity 0.2s; min-width: 44px; min-height: 44px; }
   .lightbox-close:hover { opacity: 1; }
 
   /* REVEAL */
   .reveal { opacity: 1; transform: none; }
 
   /* MOBILE */
+  @media (max-width: 1024px) {
+    /* Tablet tweaks */
+    .about-inner { gap: 4rem; }
+    .contact-inner { gap: 4rem; }
+  }
+
   @media (max-width: 900px) {
     nav { padding: 1rem 1.5rem; }
-    .nav-links { display: none; flex-direction: column; position: fixed; top: 60px; left: 0; right: 0; background: rgba(13,13,13,0.98); padding: 2rem; gap: 1.5rem; border-bottom: 1px solid var(--border); z-index: 99; }
+    .nav-logo { font-size: 0.7rem; }
+    .nav-links { display: none; flex-direction: column; position: fixed; top: 60px; left: 0; right: 0; background: rgba(13,13,13,0.98); padding: 2rem; gap: 1.5rem; border-bottom: 1px solid var(--border); z-index: 99; max-height: calc(100vh - 60px); overflow-y: auto; }
     .nav-links.open { display: flex; }
-    .nav-cta { display: none; }
+    .nav-cta { display: block; margin-top: 1rem; width: 100%; text-align: center; }
     .hamburger { display: flex; }
-    .hero-content { padding: 0 1.5rem 5rem; }
+    
+    #home { padding-top: 60px; }
+    .hero-content { padding: 0 1.5rem 4rem; }
+    .hero-eyebrow { font-size: 0.75rem; }
+    .hero-sub { font-size: 1rem; margin-bottom: 1.8rem; }
+    .hero-btns { gap: 0.8rem; }
+    
     #services, #about, #testimonials, #gallery, #news, #repertoire, #contact { padding: 5rem 1.5rem; }
     .cta-band { padding: 3rem 1.5rem; }
     footer { padding: 3rem 1.5rem; }
-    .about-inner { grid-template-columns: 1fr; gap: 3rem; }
-    .about-image-stack { height: 380px; }
-    .contact-inner { grid-template-columns: 1fr; gap: 3rem; }
+    
+    .services-grid { grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1px; }
+    .service-tile { padding: 2.5rem 1.8rem; }
+    .service-tile h3 { font-size: 1.2rem; }
+    
+    .about-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+    .about-image-stack { height: 280px; }
+    
+    .contact-inner { grid-template-columns: 1fr; gap: 2.5rem; }
     .form-row { grid-template-columns: 1fr; }
+    .contact-form { padding: 2rem; }
+    
     .gallery-grid { grid-template-columns: repeat(6, 1fr); }
     .g1 { grid-column: 1/7; height: 260px; }
     .g2 { grid-column: 1/4; height: 200px; }
@@ -230,9 +243,114 @@
     .g4 { grid-column: 1/3; height: 170px; }
     .g5 { grid-column: 3/5; height: 170px; }
     .g6 { grid-column: 5/7; height: 170px; }
+    
     .repertoire-columns { grid-template-columns: 1fr; }
     .rep-category { border-right: none; border-bottom: 1px solid var(--border); }
+    
+    .testimonials-grid { grid-template-columns: 1fr; }
     .video-modal-inner { width: 96vw; }
+  }
+
+  @media (max-width: 640px) {
+    body { font-size: 16px; }
+    
+    nav { padding: 0.8rem 1rem; gap: 1rem; }
+    .nav-logo { font-size: 0.65rem; letter-spacing: 0.15em; }
+    .nav-links { top: 56px; padding: 1.5rem; gap: 1.2rem; }
+    
+    #home { min-height: 90vh; }
+    .hero-content { padding: 0 1rem 3rem; }
+    h1 { font-size: clamp(2rem, 4vw, 2.8rem); margin-bottom: 1rem; line-height: 1.1; }
+    .hero-eyebrow { font-size: 0.7rem; margin-bottom: 0.8rem; gap: 0.8rem; }
+    .hero-eyebrow::before { width: 24px; }
+    .hero-sub { font-size: 0.95rem; margin-bottom: 1.5rem; }
+    .hero-btns { flex-direction: column; gap: 0.6rem; }
+    
+    #services, #about, #testimonials, #gallery, #news, #repertoire, #contact { padding: 3.5rem 1rem; }
+    .section-header { margin-bottom: 3rem; }
+    .section-header h2 { font-size: clamp(1.4rem, 2.5vw, 2rem); margin-top: 0.5rem; }
+    
+    .services-grid { grid-template-columns: 1fr; }
+    .service-tile { padding: 2rem 1.5rem; }
+    .service-tile h3 { font-size: 1.1rem; margin-bottom: 0.6rem; }
+    .service-icon { font-size: 1.6rem; margin-bottom: 0.8rem; }
+    
+    .about-image-stack { height: 200px; }
+    .about-text h2 { font-size: clamp(1.3rem, 2vw, 1.8rem); margin-bottom: 1rem; }
+    .about-text p { font-size: 1rem; margin-bottom: 0.8rem; }
+    .credentials { gap: 0.5rem; }
+    .credential-item { font-size: 0.9rem; gap: 0.6rem; }
+    
+    .contact-form { padding: 1.5rem; }
+    .form-title { font-size: 1.2rem; }
+    .form-subtitle { font-size: 0.9rem; }
+    .form-group label { font-size: 0.75rem; }
+    .form-group input, .form-group select, .form-group textarea { font-size: 1rem; padding: 0.65rem 0.8rem; }
+    .checkboxes { gap: 0.4rem; }
+    .checkbox-label { font-size: 0.85rem; gap: 0.4rem; }
+    
+    .btn-primary, .btn-ghost { padding: 0.9rem 1.5rem; font-size: 0.75rem; }
+    .btn-submit { padding: 0.95rem; font-size: 0.75rem; }
+    
+    .cta-band { padding: 2.5rem 1rem; }
+    .cta-band h2 { font-size: 1.5rem; margin-bottom: 0.6rem; }
+    .cta-band p { font-size: 0.95rem; margin-bottom: 1.5rem; }
+    
+    .gallery-grid { grid-template-columns: repeat(4, 1fr); gap: 2px; }
+    .g1 { grid-column: 1/5; height: 180px; }
+    .g2 { grid-column: 1/3; height: 140px; }
+    .g3 { grid-column: 3/5; height: 140px; }
+    .g4 { grid-column: 1/3; height: 120px; }
+    .g5 { grid-column: 3/5; height: 120px; }
+    .g6 { display: none; }
+    
+    .repertoire-columns { grid-template-columns: 1fr; }
+    .rep-category { padding: 1.5rem; }
+    .rep-category h3 { font-size: 0.95rem; margin-bottom: 1rem; }
+    .rep-list li { font-size: 0.9rem; }
+    
+    .news-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+    .news-card-body { padding: 1.5rem; }
+    
+    .testimonials-grid { gap: 1.5rem; }
+    .testimonial-card { padding: 1.5rem; }
+    .testimonial-card p { font-size: 1rem; }
+    
+    .video-modal-inner { width: 98vw; }
+    .lightbox img { max-width: 95vw; max-height: 85vh; }
+    
+    .footer-links { gap: 1rem; }
+    .footer-links a { font-size: 0.75rem; }
+    
+    .response-note { padding: 0.8rem 1rem; font-size: 0.85rem; margin-top: 1.5rem; }
+    
+    .about-inner { gap: 1.5rem; }
+    .contact-inner { gap: 1.5rem; }
+  }
+
+  @media (max-width: 480px) {
+    body { font-size: 15px; line-height: 1.6; }
+    
+    nav { padding: 0.6rem 0.8rem; }
+    .nav-logo { font-size: 0.6rem; }
+    .hamburger { min-width: 40px; min-height: 40px; }
+    
+    #home { min-height: 85vh; }
+    .hero-content { padding: 0 0.8rem 2.5rem; }
+    h1 { font-size: 2rem; }
+    .hero-btns { gap: 0.5rem; }
+    
+    #services, #about, #testimonials, #gallery, #news, #repertoire, #contact { padding: 3rem 0.8rem; }
+    
+    .service-tile { padding: 1.5rem; }
+    .gallery-grid { grid-template-columns: repeat(3, 1fr); }
+    .g1 { grid-column: 1/4; height: 150px; }
+    .g2 { grid-column: 1/2; height: 120px; }
+    .g3 { grid-column: 2/4; height: 120px; }
+    .g4 { grid-column: 1/3; height: 100px; }
+    .g5 { grid-column: 3/4; height: 100px; }
+    
+    .rep-category { padding: 1rem; }
   }
 </style>
 </head>
@@ -329,8 +447,6 @@
   </div>
 </section>
 
-
-
 <!-- CTA BAND -->
 <div class="cta-band reveal">
   <h2>Ready to Book?</h2>
@@ -373,7 +489,6 @@
       Visit Us On Instagram
     </a>
   </div>
-
 </section>
 
 <!-- IN THE NEWS -->
@@ -383,10 +498,9 @@
     <h2>On Stage, On the Street,<br><em>In the Record</em></h2>
   </div>
   <div class="news-grid">
-
     <div class="news-card reveal" onclick="openNewsLightbox('news2.JPG')">
       <div class="news-card-media">
-        <img src="news2.JPG" alt=".">
+        <img src="news2.JPG" alt="Denis Cashman Gravestone Unveiling">
       </div>
       <div class="news-card-body">
         <div class="news-card-tag">Memorial · Denis Cashman</div>
@@ -402,7 +516,7 @@
       <div class="news-card-body">
         <div class="news-card-tag">Ceremonial · Liam Lynch</div>
         <div class="news-card-title">Liam Lynch Centenary</div>
-        <div class="news-card-desc">In April 2023, Fermoy marked the centenary of General Liam Lynch’s death with a commemorative parade featuring 12 pipe bands from Ireland and abroad. The County Cork Pipe Band led the tribute, highlighting the region’s strong musical tradition while honoring Lynch’s legacy in the Irish Civil War.</div>
+        <div class="news-card-desc">In April 2023, Fermoy marked the centenary of General Liam Lynch's death with a commemorative parade featuring 12 pipe bands from Ireland and abroad. The County Cork Pipe Band led the tribute, highlighting the region's strong musical tradition while honoring Lynch's legacy in the Irish Civil War.</div>
       </div>
     </div>
 
@@ -416,7 +530,6 @@
         <div class="news-card-desc">A fixture in the parades that define New York's Irish calendar — from the NYC St. Patrick's Day Parade to events across Long Island and the Hudson Valley.</div>
       </div>
     </div>
-
   </div>
 </section>
 
@@ -515,22 +628,22 @@
         <input type="hidden" name="_redirect" value="http://www.theirishpiper.com/" />
         <div class="form-row">
           <div class="form-group">
-            <label>Name *</label>
-            <input type="text" name="name" required placeholder="Your name">
+            <label for="name">Name *</label>
+            <input id="name" type="text" name="name" required placeholder="Your name">
           </div>
           <div class="form-group">
-            <label>Email *</label>
-            <input type="email" name="email" required placeholder="your@email.com">
+            <label for="email">Email *</label>
+            <input id="email" type="email" name="email" required placeholder="your@email.com">
           </div>
         </div>
         <div class="form-row">
           <div class="form-group">
-            <label>Phone (optional)</label>
-            <input type="tel" name="phone" placeholder="(212) 555-0100">
+            <label for="phone">Phone (optional)</label>
+            <input id="phone" type="tel" name="phone" placeholder="(212) 555-0100">
           </div>
           <div class="form-group">
-            <label>Event Type *</label>
-            <select name="event_type" required>
+            <label for="event_type">Event Type *</label>
+            <select id="event_type" name="event_type" required>
               <option value="" disabled selected>Select type…</option>
               <option>Wedding</option>
               <option>Funeral / Memorial</option>
@@ -542,12 +655,12 @@
         </div>
         <div class="form-row">
           <div class="form-group">
-            <label>Event Date</label>
-            <input type="date" name="event_date">
+            <label for="event_date">Event Date</label>
+            <input id="event_date" type="date" name="event_date">
           </div>
           <div class="form-group">
-            <label>Location (City, State)</label>
-            <input type="text" name="location" placeholder="e.g. Brooklyn, NY">
+            <label for="location">Location (City, State)</label>
+            <input id="location" type="text" name="location" placeholder="e.g. Brooklyn, NY">
           </div>
         </div>
         <div class="form-group">
@@ -561,163 +674,16 @@
           </div>
         </div>
         <div class="form-group">
-          <label>Specific Tune Requests?</label>
-          <input type="text" name="tunes" placeholder="We will do our …">
+          <label for="tunes">Specific Tune Requests?</label>
+          <input id="tunes" type="text" name="tunes" placeholder="We will do our …">
         </div>
         <div class="form-group">
-          <label>Additional Details</label>
-          <textarea name="notes" placeholder="Anything else I should know about your event…"></textarea>
+          <label for="notes">Additional Details</label>
+          <textarea id="notes" name="notes" placeholder="Anything else I should know about your event…"></textarea>
         </div>
         <button type="submit" class="btn-submit">Check Availability</button>
       </form>
       <div id="formSuccess" style="display:none; text-align:center; padding:3rem;">
         <div style="font-size:2rem; margin-bottom:1rem;">🍀</div>
         <div style="font-family:'Playfair Display',serif; font-size:1.3rem; font-style:italic; color:var(--gold);">Thank you — your request has been received.</div>
-        <div style="font-family:'Cormorant Garamond',serif; font-size:1rem; color:rgba(245,240,232,0.5); margin-top:0.5rem;">I'll follow up within 24 hours.</div>
-      </div>
-    </div>
-</section>
-
-<!-- FOOTER -->
-<footer>
-  <div class="footer-tagline">Traditional Bagpiper · New York City</div>
-  <div class="footer-sub">Tradition. Respect. Authenticity.</div>
-  <ul class="footer-links">
-    <li><a href="#about">About</a></li>
-    <li><a href="#services">Services</a></li>
-    <li><a href="#gallery">Gallery</a></li>
-    <li><a href="#news">In the News</a></li>
-    <li><a href="#repertoire">Repertoire</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
-  <div class="footer-copy">© 2026 · New York City &amp; Tri-State Area</div>
-</footer>
-
-<!-- GALLERY LIGHTBOX -->
-<div class="lightbox" id="lightbox">
-  <button class="lightbox-close" onclick="closeLightbox()">✕ Close</button>
-  <img id="lightboxImg" src="" alt="" onclick="event.stopPropagation()">
-</div>
-
-<!-- VIDEO MODAL -->
-<div class="video-modal" id="videoModal" onclick="handleModalClick(event)">
-  <div class="video-modal-inner">
-    <button class="modal-close" onclick="closeVideoModal()">✕ Close</button>
-    <video id="modalVideo" controls src="skynews.MP4"></video>
-  </div>
-</div>
-
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
-    
-    // Hamburger
-    document.getElementById('hamburger').addEventListener('click', () =>
-      document.getElementById('navLinks').classList.toggle('open')
-    );
-    document.querySelectorAll('.nav-links a').forEach(a =>
-      a.addEventListener('click', () => document.getElementById('navLinks').classList.remove('open'))
-    );
-
-    // Gallery lightbox - FIXED
-    function openLightbox(el) {
-      const lightbox = document.getElementById('lightbox');
-      const lightboxImg = document.getElementById('lightboxImg');
-      
-      lightboxImg.src = el.querySelector('img').src;
-      lightbox.classList.add('active');
-      document.body.style.overflow = 'hidden';
-    }
-
-    function closeLightbox() {
-      const lightbox = document.getElementById('lightbox');
-      lightbox.classList.remove('active');
-      document.body.style.overflow = '';
-    }
-
-    // Make functions globally accessible
-    window.openLightbox = openLightbox;
-    window.closeLightbox = closeLightbox;
-
-    // Setup lightbox listeners
-    const lightbox = document.getElementById('lightbox');
-
-    // Click background only
-    lightbox.addEventListener('click', function(e) {
-      if (e.target === this) {
-        closeLightbox();
-      }
-    });
-
-    // Prevent image clicks from triggering close
-    document.getElementById('lightboxImg').addEventListener('click', function(e) {
-      e.stopPropagation();
-    });
-
-    // Close button
-    document.querySelector('.lightbox-close').addEventListener('click', function(e) {
-      e.preventDefault();
-      e.stopPropagation();
-      closeLightbox();
-    });
-
-    // News photo lightbox
-    function openNewsLightbox(src) {
-      document.getElementById('lightboxImg').src = src;
-      lightbox.classList.add('active');
-      document.body.style.overflow = 'hidden';
-    }
-
-    window.openNewsLightbox = openNewsLightbox;
-
-    // Video modal
-    function openVideoModal() {
-      document.getElementById('videoModal').classList.add('active');
-      document.body.style.overflow = 'hidden';
-      document.getElementById('modalVideo').play();
-    }
-
-    function closeVideoModal() {
-      document.getElementById('videoModal').classList.remove('active');
-      document.body.style.overflow = '';
-      const v = document.getElementById('modalVideo');
-      v.pause();
-      v.currentTime = 0;
-    }
-
-    function handleModalClick(e) {
-      if (e.target === document.getElementById('videoModal')) closeVideoModal();
-    }
-
-    window.openVideoModal = openVideoModal;
-    window.closeVideoModal = closeVideoModal;
-    window.handleModalClick = handleModalClick;
-
-    // Keyboard close
-    document.addEventListener('keydown', e => {
-      if (e.key === 'Escape') {
-        if (document.getElementById('lightbox').classList.contains('active')) {
-          closeLightbox();
-        }
-        if (document.getElementById('videoModal').classList.contains('active')) {
-          closeVideoModal();
-        }
-      }
-    });
-
-    // Nav highlight
-    const sections = document.querySelectorAll('section[id]');
-    window.addEventListener('scroll', () => {
-      let current = '';
-      // Rest of your nav highlight code here if needed
-    });
-
-  }); // End DOMContentLoaded
-</script>
-
-  // Form submits via Formspark action attribute
-
-  // Nav highlight
-  const sections = document.querySelectorAll('section[id]');
-  window.addEventListener('scroll', () => {
-    let current = '';
-    
+        <div style="font-family:'Cormorant Garamond',serif; font-size:1rem; color:rgba(245,240,232,0*
